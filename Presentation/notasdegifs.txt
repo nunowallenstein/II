@@ -1,0 +1,32 @@
+###########################################
+#ffmpeg
+
+#conveter de gif para mp4
+ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4
+#ffmpeg converter de png para mp4
+ ffmpeg -i  labref-%01d.png output.mp4
+
+
+##########################################################
+#ImageMagick
+#para colocar o gif com a ordenaçoã correcta das imagens
+convert -delay 10  'labref-%d.png[0-400]' GIFlabref.gif
+convert -delay 10 -loop 0 *.png GIFlabref.gif
+convert -fuzz 1% -delay 10 -loop 0 *.png -coalesce -layers OptimizeTransparency animation.gif
+
+#Dar trim
+convert 'labref-%d.png[0-400]' -trim 'trimmed/labrefT-%d.png[0-400]'
+
+###########################################################################
+#Latex beamer
+
+#por o gif no latex. Partir em imagens e
+\usepackage{animate}
+\animategraphics[loop,controls,width=0.7\textwidth,height=0.6\textheight]{10}{labrefgif0/trimmed/labref0T-}{0}{399}
+
+#Não consegui por isto a funcionar desta maneira, mas no futuro...
+\usepackage{multimedia}
+ %  \movie[height = 0.6 \textwidth,width = 1.0 \textwidth]{}{labref1.mp4}
+%  \begin{center}%
+%    \includemovie{.85\textheight}{.85\textheight}{labref1.mp4}%
+    %\end{center}%
