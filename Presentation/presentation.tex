@@ -49,6 +49,7 @@
 
 \usepackage{lipsum}
 \usepackage{mwe}
+ \newcommand{\sign}{\mathop{\mathrm{sign}}}
 
 \graphicspath{{images/}}
 \usepackage{cases}
@@ -117,8 +118,15 @@ with $u(t)=\ddot{f_x}/l$, the control function applied to the pivot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 \begin{frame}[t]{Energy Control}
 
+\begin{columns} 
+      \column{0.3\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{E1.png}
+      \captionof{figure}{Energy control $E_1$}
 
-  \begin{equation}
+      \column{0.5\textwidth}
+      In the pivot reference frame
+      \begin{equation}
     \mathcal{H}=\frac{\dot{\theta}^2}{2}+ \frac{g}{l}\cos{\theta}
   \end{equation}
   \vspace{0.5 cm}
@@ -130,6 +138,7 @@ with $u(t)=\ddot{f_x}/l$, the control function applied to the pivot
     \frac{d\mathcal{H}}{dt}=-u(t) \,\dot{\theta}\,\cos{\theta}
     \label{control1d}
 \end{equation}
+\end{columns}
 \begin{block}{Control Function}
 
   \begin{equation}
@@ -151,13 +160,13 @@ x(t) =f_x(t)+ l \sin{\theta}\cos{\phi}
   y(t)=f_y(t)+l\sin{\theta}\sin{\phi} 
 \end{equation}
 \begin{equation}
-    z(t)=l \cos{\theta}.
+    z(t)=l \cos{\theta}
 \end{equation}
 
 
 
 \begin{equation}
-\scalebox{0.95}[1]{$\ddot{\theta}-\frac{g}{l}\sin{\theta}- \dot{\phi}^2\, \cos{\theta}\,\sin\theta =-\cos{\theta} (\cos{\phi}\, u_x(t)+ \sin{\phi}\, u_y(t)),$} 
+\scalebox{0.95}[1]{$\ddot{\theta}-\frac{g}{l}\sin{\theta}- \dot{\phi}^2\, \cos{\theta}\,\sin\theta =-\cos{\theta} (\cos{\phi}\, u_x(t)+ \sin{\phi}\, u_y(t))$} 
 \label{teta2d}
 \end{equation}
 \begin{equation}
@@ -181,8 +190,8 @@ with $u_x(t)=\ddot{f_x(t)}/l$ and $u_y(t)=\ddot{f_y(t)}/l$
   
 \begin{block}{In case $u_x$,$u_y$  $\parallel$ $(\hat{e_r})_{cylindrical}$}
  $\Vec{o}(t)$=\left\{\begin{aligned} 
-   & u_x(t)=o(t) \cos{\phi}, \\
-    & u_y(t)=o(t) \sin{\phi},  
+   & u_x(t)=o(t) \cos{\phi} \\
+    & u_y(t)=o(t) \sin{\phi}  
     \end{aligned}\right. \rightarrow
     \begin{aligned}
      \frac{d\mathcal{H}}{dt}=-o(t)\,\dot{\theta}\,\cos{\theta} 
@@ -192,11 +201,11 @@ with $u_x(t)=\ddot{f_x(t)}/l$ and $u_y(t)=\ddot{f_y(t)}/l$
 \begin{block}{In case $u_x$, $u_y$ $\parallel$ $(\hat{e_{\phi}})$}
 
  $\Vec{s}(t)$=\left\{\begin{aligned} 
- & u_x(t)=-s(t) \sin{\phi}, \\
-  &  u_y(t)=s(t) \cos{\phi}, 
+ & u_x(t)=-s(t) \sin{\phi} \\
+  &  u_y(t)=s(t) \cos{\phi} 
     \end{aligned}\right. \rightarrow
 \begin{aligned}
-    \frac{d\mathcal{H}}{dt}=- s(t)\,\dot{\phi}\sin{\theta}. 
+    \frac{d\mathcal{H}}{dt}=- s(t)\,\dot{\phi}\sin{\theta} 
 \end{aligned}
 \end{block}
 \end{frame}
@@ -205,16 +214,16 @@ with $u_x(t)=\ddot{f_x(t)}/l$ and $u_y(t)=\ddot{f_y(t)}/l$
 \begin{frame}[t]{2D Control Functions}
     
      \begin{columns}
-          \column{0.50\linewidth}
+          \column{0.45\linewidth}
              \centering
              \includegraphics[width=1\textwidth]{Excontrolo4_3.png}
              \captionof{figure}{Control of the spherical pendulum in 2D}
-             \column{0.50\linewidth}
+             \column{0.55\linewidth}
              
              \begin{block}{2D Control Functions}
                \vspace*{-\baselineskip}\setlength\belowdisplayshortskip{0pt}
                \begin{equation}  
-               \scalebox{0.85}[1]{$ o(t)=-\mu  \sign\left({E_1-E}\right)\sign{(\dot{\theta} \cos{\theta})}$} 
+               \scalebox{0.80}[1]{$ o(t)=-\mu  \sign\left({E_1-E}\right)\sign{(\dot{\theta} \cos{\theta})}$} 
                  \label{controlu2d}
                \end{equation}
                \begin{equation}
@@ -239,7 +248,7 @@ with $u_x(t)=\ddot{f_x(t)}/l$ and $u_y(t)=\ddot{f_y(t)}/l$
   \begin{columns}
           \column{0.6\textwidth}
           \centering
-         % \animategraphics[loop,controls,width=0.7\textwidth,height=0.6\textheight]{10}{labrefgif0/trimmed/labref0T-}{0}{399}
+          \animategraphics[loop,controls,width=0.7\textwidth,height=0.6\textheight]{10}{labrefgif0/trimmed/labref0T-}{0}{399}
              \column{0.35\textwidth}
            
            \includegraphics[width=1.2\textwidth,height=0.3\textheight]{Estabilizacaoteta0.png}
@@ -256,7 +265,7 @@ with $u_x(t)=\ddot{f_x(t)}/l$ and $u_y(t)=\ddot{f_y(t)}/l$
   \begin{columns}
           \column{0.6\textwidth}
              \centering
-        %  \animategraphics[loop,controls,width=0.7\textwidth,height=0.6\textheight]{10}{pivotrefgif0/trimmed/pivotref0T-}{0}{399}
+          \animategraphics[loop,controls,width=0.7\textwidth,height=0.6\textheight]{10}{pivotrefgif0/trimmed/pivotref0T-}{0}{399}
              \column{0.35\textwidth}
              \includegraphics[width=1.2\textwidth,height=0.3\textheight]{Estabilizacaoteta0.png}
              \captionof{figure}{$\theta$ with time}
@@ -272,7 +281,7 @@ with $u_x(t)=\ddot{f_x(t)}/l$ and $u_y(t)=\ddot{f_y(t)}/l$
   \begin{columns}
           \column{0.6\linewidth}
              \centering
-         % \animategraphics[loop,controls,width=0.7\textwidth,height=0.6\textheight]{10}{labrefgif(copy)/labref1Trimmed/labrefT-}{0}{399}
+        \animategraphics[loop,controls,width=0.7\textwidth,height=0.6\textheight]{10}{labrefgif(copy)/labref1Trimmed/labrefT-}{0}{399}
              \column{0.35\linewidth}
              \centering
              \includegraphics[width=1.2\textwidth,height=0.3\textheight]{Estabilizacaoteta1.png}
@@ -291,7 +300,7 @@ with $u_x(t)=\ddot{f_x(t)}/l$ and $u_y(t)=\ddot{f_y(t)}/l$
   \begin{columns}
           \column{0.6\linewidth}
              \centering
-         % \animategraphics[loop,controls,width=0.75\textwidth,height=0.6\textheight]{10}{pivotrefgif1/trimmed/pivotref1T-}{0}{399}
+         \animategraphics[loop,controls,width=0.75\textwidth,height=0.6\textheight]{10}{pivotrefgif1/trimmed/pivotref1T-}{0}{399}
              \column{0.35\linewidth}
              \centering
              \includegraphics[width=1.2\textwidth,height=0.3\textheight]{Estabilizacaoteta1.png}
@@ -311,19 +320,19 @@ with $u_x(t)=\ddot{f_x(t)}/l$ and $u_y(t)=\ddot{f_y(t)}/l$
   \begin{itemize}
   \item Analysis on the stability of the $\mu$ and $\nu$ parameters
   \item Compare with other equilibrium methods
-  \item Produce a more realistic model possibly contemplating with air friction
+  \item Produce a more realistic model contemplating air friction
   \end{itemize}
 \end{frame}
 \begin{frame}{References}
   \begin{thebibliography}{99}
 
 \bibitem{Furtura}
- Åström, Karl Johan, and Katsuhisa Furuta. "Swinging up a pendulum by energy control." Automatica 36.2 (2000): 287-295.
+ Åström, Karl Johan, and Katsuhisa Furuta. "Swinging up a pendulum by energy control." Automatica 36.2 (2000): 287-295
  \bibitem{Rungekutta}
 Süli, Endre; Mayers, David, An Introduction to Numerical Analysis, Cambridge University Press,(2003): ISBN 0-521-00794-1 
 
  \bibitem{Dilao}
- R. Dilão, "Uma Introdução à Teoria dos Sistemas Dinâmicos e do Caos",IST 31.2 (2018): 330-335, .
+ R. Dilão, "Uma Introdução à Teoria dos Sistemas Dinâmicos e do Caos",IST 31.2 (2018): 330-335
   %%CITATION = HEP-PH/0607298;%%
   %51 citations counted in INSPIRE as of 26 Sep 2013
 
